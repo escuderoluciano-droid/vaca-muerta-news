@@ -73,7 +73,7 @@ export default function NewsSearch({ apiKey, onClearKey }) {
           'anthropic-dangerous-direct-browser-access': 'true',
         },
         body: JSON.stringify({
-          model: 'claude-sonnet-4-20250514',
+          model: 'claude-sonnet-4-5',
           max_tokens: 1500,
           system: SYSTEM_PROMPT,
           tools: [{ type: 'web_search_20250305', name: 'web_search' }],
