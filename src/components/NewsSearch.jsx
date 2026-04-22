@@ -95,7 +95,11 @@ export default function NewsSearch({ apiKey, onClearKey }) {
         .map(b => b.text)
         .join('')
 
-      const clean = text.replace(/```json|```/g, '').trim()
+   let clean = text.replace(/```json|```/g, '').trim()
+      if (!clean.endsWith('}')) {
+        const lastBrace = clean.lastIndexOf('}')
+        if (lastBrace > 0) clean = clean.substring(0, lastBrace + 1)
+      }
       const parsed = JSON.parse(clean)
       setResults(parsed)
     } catch (err) {
